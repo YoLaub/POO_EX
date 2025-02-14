@@ -30,7 +30,7 @@ fieldset{
     flex-direction: column;
 }
 
-input{
+.field{
     background-color:#66796B;
     border: none;
     border-radius: 5px;
@@ -39,6 +39,14 @@ input{
     height: 32px;
     width: 300px;
 }
+
+.check{
+    width: 300px;
+    margin: 0px auto;
+    padding-left: 16px;
+
+}
+
 input::placeholder{
     color: white;
 }
@@ -83,4 +91,6 @@ a{
     color: #dd0000;
     font-style: italic;
     font-size: 13px;
+    margin: 0 auto;
+    width: 300px;
 }

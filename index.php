@@ -29,7 +29,7 @@
         ?>
 
         <h2>
-            Le Formulaire dynamique
+            Le Formulaire dynamique - <a href="https://github.com/GRETA-Kercode9/PHP-POO/tree/main">Solution -> Thierry</a>
         </h2>
 
         <?php
@@ -40,6 +40,7 @@
             $form->setText("prenom",$_GET["prenom"] ?? '', "Entrer votre prenom:");
             $form->setText("nom",$_GET["nom"] ?? '', "Entrer votre nom: ");
             $form->setText("email",$_GET["email"] ?? '', "Entrer votre email: ");
+            $form->setCheck("radio",["non précisé","masculin","feminin"]);
             $form->setSubmit("Envoyer");
             echo $form->getForm();
             

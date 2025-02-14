@@ -11,6 +11,8 @@ class Form
     private $value = '';  // Valeur par défaut pour les champs du formulaire
     private $placeholder = ''; // Placeholder pour les champs du formulaire
     private $error;       // Tableau contenant les messages d'erreur
+    private $type;
+    private $arrayValue;
 
     // Constructeur : initialise le formulaire avec l'action et la méthode spécifiées
     public function __construct($action, $method)
@@ -23,7 +25,7 @@ class Form
     public function setText($name, $value, $placeholder)
     {
         // Génération du champ de texte avec les attributs fournis
-        $this->formHtml .= "<input type='text' name='" . $name . "' value='" . $value . "' placeholder='" . $placeholder . "' />";
+        $this->formHtml .= "<input class='field' type='text' name='" . $name . "' value='" . $value . "' placeholder='" . $placeholder . "' />";
 
         $this->name = $name; // Stockage du nom du champ
 
@@ -32,7 +34,7 @@ class Form
 
         // Affichage du message d'erreur associé, s'il existe
         if (isset($this->error[$name])) {
-            $this->formHtml .= "<br><span class='error'>" . $this->error[$name] . "</span>";
+            $this->formHtml .= "<span class='error'>" . $this->error[$name] . "</span>";
         }
     }
 
@@ -76,6 +78,19 @@ class Form
         }
 
         return $this->error; // Retourne le tableau des erreurs
+    }
+
+    // Méthode pour ajouter un bloc bouton radio 
+    public function setCheck($type, $arrayValue){
+
+        for($i =0; $i <= count($arrayValue)-1; $i++ ){
+            $this->formHtml .= "<div  class ='check'>";
+            $this->formHtml .= "<input type='".$type."' id='".$arrayValue[$i]."' name='drone' value='".$arrayValue[$i]."' />";
+            $this->formHtml .= "<label for='".$arrayValue[$i]."'>".$arrayValue[$i]."</label>";
+            $this->formHtml .= "</div>";
+        }
+   
+
     }
 
     // Méthode pour ajouter un bouton de soumission au formulaire
